@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { CustomEase } from "gsap/CustomEase";
 
-export function initLoader() {
+export function initLoader(lenis) {
     gsap.registerPlugin(SplitText);
     gsap.registerPlugin(CustomEase);
     CustomEase.create("hop", "0.9, 0, 0.1, 1")
@@ -115,5 +115,9 @@ export function initLoader() {
         duration: 1,
         ease: "power4.out",
         stagger: 0.075,
+        onComplete: () => {
+            document.body.style.overflow = "";
+            if (lenis) lenis.start();
+        }
     }, 7.5);
 }
