@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Modern Flâneur - Flaneur</title>
+    <meta name="description"
+        content="Exploring the city as a canvas of infinite possibilities. A deep dive into modern aimless wandering.">
+    <meta property="og:title" content="The Modern Flâneur">
+    <meta property="og:description"
+        content="Wander not because you are lost, but because the act of wandering is a form of poetry.">
+    <meta property="og:type" content="article">
+  <script type="module" crossorigin src="/assets/main-BkyHq0xd.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-gflV9oG5.css">
+</head>
+
+<body class="article-page">
+    <nav aria-label="Ana Menü">
+        <div class="nav-logo">
+            <a href="/" aria-label="Flaneur Anasayfa">Flaneur</a>
+        </div>
+        <div class="nav-links">
+            <a href="/">anasayfa</a>
+            <a href="/arsiv.html">arşiv</a>
+            <a href="#">hakkımızda</a>
+            <a href="#">iletişim</a>
+        </div>
+    </nav>
+
+    <main class="article-container" id="dynamic-article-container" style="position: relative;">
+        <!-- Breadcrumbs UI Removed -->
+
+        <header class="article-header">
+            <div class="article-meta-top">
+                <span id="article-issue"></span>
+                <span id="article-category"></span>
+            </div>
+
+            <h1 class="article-title" id="article-title">Yükleniyor...</h1>
+            <p class="article-subtitle" id="article-subtitle"></p>
+
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem;">
+                <span class="article-author" id="article-author"></span>
+                <span class="reading-time" id="reading-time" style="opacity: 0.7; font-size: 0.9rem;"></span>
+            </div>
+        </header>
+
+        <figure class="article-hero-image" style="margin-bottom: 3rem;">
+            <img id="article-image" src="" alt="" loading="lazy"
+                style="opacity: 0; transition: opacity 0.5s ease-in; width: 100%;">
+        </figure>
+
+        <div class="article-body-wrapper">
+            <!-- ToC Sidebar (Visible on Desktop) -->
+            <aside class="toc-sidebar" id="toc-container" style="display: none;">
+                <div class="toc-sticky" style="position: sticky; top: 120px;">
+
+                    <!-- Font Resizer -->
+                    <div class="font-resizer" style="display: flex; gap: 0.5rem; margin-bottom: 2rem;">
+                        <button id="btn-font-dec"
+                            style="background:none; border:1px solid var(--base-300); color:var(--base-300); padding: 0.2rem 0.5rem; cursor:pointer; font-family: 'Outfit'; border-radius: 4px;"
+                            aria-label="Metni Küçült">A-</button>
+                        <button id="btn-font-reset"
+                            style="background:none; border:1px solid var(--base-300); color:var(--base-300); padding: 0.2rem 0.5rem; cursor:pointer; font-family: 'Outfit'; border-radius: 4px;"
+                            aria-label="Varsayılan Boyut">A</button>
+                        <button id="btn-font-inc"
+                            style="background:none; border:1px solid var(--base-300); color:var(--base-300); padding: 0.2rem 0.5rem; cursor:pointer; font-family: 'Outfit'; border-radius: 4px;"
+                            aria-label="Metni Büyüt">A+</button>
+                    </div>
+
+                    <h4
+                        style="margin-bottom: 1rem; text-transform: uppercase; font-size: 0.8rem; opacity: 0.5; letter-spacing: 0.05em;">
+                        İçindekiler</h4>
+                    <ul id="toc-list"
+                        style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.6; opacity: 0.8;">
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <section class="article-content" id="article-content" style="transition: font-size 0.3s ease;">
+            </section>
+        </div>
+    </main>
+
+    <div class="next-article" id="next-article-container"
+        style="display:none; padding:4rem 2rem; border-top: 1px solid var(--base-300);">
+        <span class="next-article-label"
+            style="text-transform: uppercase; font-size: 0.75rem; opacity: 0.6; display: block; margin-bottom: 1rem;">Sıradaki
+            Yazı</span>
+        <a href="#" id="next-article-link" style="text-decoration: none; color: inherit;">
+            <h2 id="next-article-title"
+                style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem);"></h2>
+        </a>
+    </div>
+
+    <!-- Highlighter Popup -->
+    <div id="highlighter-popup"
+        style="display: none; position: absolute; background: var(--base-100); border: 2px solid var(--base-300); padding: 0.5rem; z-index: 1000; box-shadow: 4px 4px 0px var(--base-300); display: flex; gap: 0.5rem; transform: translate(-50%, -120%); pointer-events: auto;">
+        <button id="hl-yellow"
+            style="background: #ffeb3b; color: #000; border: 2px solid var(--base-300); cursor: pointer; font-family: 'Outfit'; font-weight: bold; font-size: 0.8rem; padding: 0.2rem 0.6rem;">Sarı
+            Çiz</button>
+        <button id="hl-red"
+            style="background: #ff0000; color: #fff; border: 2px solid var(--base-300); cursor: pointer; font-family: 'Outfit'; font-weight: bold; font-size: 0.8rem; padding: 0.2rem 0.6rem;">Kırmızı
+            Çiz</button>
+        <button id="hl-clear"
+            style="background: var(--base-100); color: var(--base-300); border: 2px solid var(--base-300); cursor: pointer; font-family: 'Outfit'; font-weight: bold; font-size: 0.8rem; padding: 0.2rem 0.6rem;">Temizle</button>
+    </div>
+
+
+
+    <!-- Annotation Modal for Specific Erase / Edit -->
+    <div id="annotation-overlay"
+        style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.7); z-index: 1999; backdrop-filter: blur(2px);">
+    </div>
+    <div id="annotation-modal"
+        style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--base-100); border: 2px solid var(--base-300); padding: 20px; z-index: 2000; box-shadow: 8px 8px 0 var(--base-300); max-width: 400px; width: 90%; font-family: 'Outfit', sans-serif;">
+        <h3 style="margin-top: 0; font-family: 'Playfair Display', serif; text-transform: uppercase;">Vurgu Seçenekleri
+        </h3>
+        <textarea id="annotation-text" placeholder="Bu vurguya ufak bir not ekleyebilirsiniz..."
+            style="width: 100%; height: 100px; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.9rem; border: 1px solid var(--base-300); margin-bottom: 15px; resize: none; background: transparent; color: inherit;"
+            spellcheck="false"></textarea>
+        <div style="display: flex; gap: 10px;">
+            <button id="annotation-save"
+                style="flex: 1; padding: 10px; background: var(--base-300); color: var(--base-100); border: none; font-family: 'Outfit', sans-serif; font-weight: bold; cursor: pointer; text-transform: uppercase;">Kaydet</button>
+            <button id="annotation-delete"
+                style="padding: 10px; background: #ff0000; color: #fff; border: none; font-family: 'Outfit', sans-serif; font-weight: bold; cursor: pointer; text-transform: uppercase;">Vurguyu
+                Sil</button>
+            <button id="annotation-cancel"
+                style="padding: 10px; background: transparent; color: var(--base-300); border: 2px solid var(--base-300); font-family: 'Outfit', sans-serif; font-weight: bold; cursor: pointer; text-transform: uppercase;">İptal</button>
+        </div>
+    </div>
+
+    <!-- Minimal script for basic Lenis scroll and page setup if needed -->
+
+</body>
+
+</html>

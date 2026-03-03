@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arşiv - Flaneur</title>
+    <meta name="description" content="Flaneur dergisinin tüm yayımlanmış içerik arşivi.">
+    <link rel="stylesheet" href="/src/styles.css">
+
+    <!-- Inline styles specifically for the archive list layout, adhering to the brutalist aesthetic -->
+    <style>
+        .archive-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 12rem 2rem 6rem;
+        }
+
+        .archive-title {
+            font-size: clamp(4rem, 8vw, 6rem);
+            margin-bottom: 4rem;
+            color: var(--base-300);
+            border-bottom: 2px solid var(--base-300);
+            padding-bottom: 1rem;
+        }
+
+        .archive-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .archive-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .archive-item a {
+            text-decoration: none;
+            display: block;
+        }
+
+        .archive-item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--base-300);
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .archive-item a:hover .archive-item-title {
+            color: #ff0000;
+        }
+
+        .archive-item-meta {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--base-200);
+            display: flex;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav aria-label="Ana Menü">
+        <div class="nav-logo">
+            <a href="/" aria-label="Flaneur Anasayfa">Flaneur</a>
+        </div>
+        <div class="nav-links">
+            <a href="/">anasayfa</a>
+            <a href="/arsiv.html">arşiv</a>
+            <a href="/hakkimizda.html">hakkımızda</a>
+            <a href="/iletisim.html">iletişim</a>
+        </div>
+    </nav>
+
+    <main class="archive-container">
+        <h1 class="archive-title">Arşiv</h1>
+
+        <div class="archive-list" id="archive-article-list">
+        </div>
+    </main>
+
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
