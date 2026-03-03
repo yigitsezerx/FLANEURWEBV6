@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize the GSAP Loader Timeline if on the index page
     if (document.querySelector('.preloader-counter')) {
         document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
         lenis.stop();
         initLoader(lenis);
     }

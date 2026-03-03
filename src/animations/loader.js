@@ -117,6 +117,7 @@ export function initLoader(lenis) {
         stagger: 0.075,
         onComplete: () => {
             document.body.style.overflow = "";
+            document.documentElement.style.overflow = "";
             if (lenis) lenis.start();
         }
     }, 7.5);
