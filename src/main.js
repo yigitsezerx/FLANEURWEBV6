@@ -3,6 +3,12 @@ import Lenis from '@studio-freight/lenis';
 import { initLoader } from "./animations/loader.js";
 import { loadArticle, loadArticleLists } from "./articleLoader.js";
 
+// Force scroll to top on refresh and disable browser memory
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize Lenis
     const lenis = new Lenis({
