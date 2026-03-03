@@ -7,9 +7,19 @@ import { loadArticle, loadArticleLists } from "./articleLoader.js";
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
+
+// Brutal scroll override before anything loads
 window.scrollTo(0, 0);
 
+// In case user reloads while scrolled down
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+    // Force again on DOM load
+    window.scrollTo(0, 0);
+
     // Initialize Lenis
     const lenis = new Lenis({
         duration: 1.2,
@@ -22,6 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
         touchMultiplier: 2,
         infinite: false,
     });
+
+    // Make lenis forget previous scroll position immediately
+    lenis.scrollTo(0, { immediate: true });
 
     function raf(time) {
         lenis.raf(time);
